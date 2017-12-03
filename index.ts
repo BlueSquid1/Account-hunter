@@ -1,3 +1,4 @@
+console.write("started");
 import http = require('http');
 import { FinderAPI } from "./FinderAPI";
 
