@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^8.0.53",
+    "@types/request-promise": "^4.1.39"
+  },
+  "dependencies": {
+    "@types/request": "^2.0.8",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
+  }
+}
