@@ -1,7 +1,7 @@
 import http = require('http');
-import { FinderAPI } from "./FinderAPI";
+//import { FinderAPI } from "./FinderAPI";
 
-let portNum = 2000;
+let portNum = process.env.PORT || 1337;
 
 let server = http.createServer(newUserEvent);
 server.listen(portNum);
@@ -16,6 +16,6 @@ async function newUserEvent(req, res): Promise<void> {
 */
 
 function newUserEvent(req, res) {
-	res.write("hello");
-	res.end();
+	res.writeHead(200, {"Content-Type": "text/plain"});
+	res.end("Hello World!");
 }
