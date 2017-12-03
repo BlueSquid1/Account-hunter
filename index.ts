@@ -1,7 +1,7 @@
 import http = require('http');
 import { FinderAPI } from "./FinderAPI";
 
-let portNum = 80;
+let portNum = 2000;
 
 let server = http.createServer(newUserEvent);
 server.listen(portNum);
