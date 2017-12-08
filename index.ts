@@ -1,21 +1,22 @@
-import http = require('http');
-//import { FinderAPI } from "./FinderAPI";
+import { FinderAPI } from "./FinderAPI";
 
-let portNum = process.env.PORT || 1337;
+import express = require('express');
+import path = require('path');
 
-let server = http.createServer(newUserEvent);
-server.listen(portNum);
+let portNum = process.env.PORT || 3000;
 
-/*
-async function newUserEvent(req, res): Promise<void> {
-    let finder = new FinderAPI();
-    var x = await finder.GetInterest();
-    res.write(x.toString());
-    res.end();
-}
-*/
+let app = express();
+let finder = new FinderAPI();
 
-function newUserEvent(req, res) {
-	res.writeHead(200, {"Content-Type": "text/plain"});
-	res.end("Hello World!");
-}
+//retrieve any requested file from the "views" folder
+app.get('/views/:name', function(req, res){
+	res.sendFile(path.join(__dirname + '/views/' + req.params.name));
+});
+
+//call to api to get the latest data
+app.get('/savingAccounts', async function(req, res){
+	let savingDetails = await finder.GetInterestAccounts();
+	res.send(savingDetails);
+});
+
+app.listen(portNum);
