@@ -1,12 +1,13 @@
-import { FinderAPI } from "./FinderAPI";
-
 import express = require('express');
 import path = require('path');
+
+import { FinderAPI } from "./FinderAPI";
 
 let portNum = process.env.PORT || 3000;
 
 let app = express();
 let finder = new FinderAPI();
+finder.verbose = true;
 
 //retrieve any requested file from the "views" folder
 app.get('/views/:name', function(req, res){

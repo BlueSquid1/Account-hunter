@@ -1,0 +1,12 @@
+{
+    "Maximum Variable Rate p.a.": "maxVarInterestRate",
+    "Standard Variable Rate p.a.": "standardInterestRate",
+    "Bonus Interest p.a.": "bonusInterest",
+    "Monthly Account Fee": "monthlyFees",
+    "Minimum Opening Deposit": "minOpeningDeposit",
+    "Introductory Interest Period": "introInterestPeriod",
+    "Internet Banking": "hasInternetBanking",
+    "Internet Transaction Fee": "internetTransFees",
+    "Phone Banking": "phoneBanking",
+    "Phone Transaction Fee": "phoneTransFees"
+}
