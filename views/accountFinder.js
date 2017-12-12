@@ -11,7 +11,7 @@ $.ajax({
 
             accountRow.append($('<th></th>').addClass('text-center').text(Number(accountIndex) + 1));
             accountRow.append($('<td></td>').addClass('text-center').text(accountObj["accountName"]));
-            accountRow.append($('<td></td>').addClass('text-center').text(accountObj["interestedEarned"]));
+            accountRow.append($('<td></td>').addClass('text-center').text(accountObj["interestEarned"]));
             accountRow.append($('<td></td>').addClass('text-center').text(accountObj["maxVarInterestRate"]));
             accountRow.append($('<td></td>').addClass('text-center').text(accountObj["standardInterestRate"]));
             accountRow.append($('<td></td>').addClass('text-center').text(accountObj["monthlyFees"]));
