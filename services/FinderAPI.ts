@@ -9,7 +9,7 @@ export class FinderAPI{
 
     async GetInterestAccounts():  Promise<Array<any>> {
         if(this.verbose == true) {
-            console.debug("Call to get interest accounts");
+            console.log("Call to get interest accounts");
         }
         
         let time = new Date();
@@ -19,7 +19,7 @@ export class FinderAPI{
         if( (this.accountBuffer.length == 0) || (expired == true) ) {
             //refresh buffered copy
             if(this.verbose == true) {
-                console.debug("expired copy in buffer. Retrieving latest interest accounts");
+                console.log("expired copy in buffer. Retrieving latest interest accounts");
             }
             let numMonths = 24;
             let intialDeposit = 5000;
@@ -29,7 +29,7 @@ export class FinderAPI{
         }
 		
 		if(this.verbose == true) {
-            console.debug("Success. Returning savings accounts");
+            console.log("Success. Returning savings accounts");
         }
         return this.accountBuffer;
     }
@@ -63,7 +63,7 @@ export class FinderAPI{
         let savingAccountIDs: Array<accountID> = [];
 
         if(this.verbose == true) {
-            console.debug("Sending request to finder.com.au, This can take a minute...");
+            console.log("Sending request to finder.com.au, This can take a minute...");
         }
         //send POST request to server
         let resObj = await rp(options);
@@ -98,7 +98,7 @@ export class FinderAPI{
         }
 
         if(this.verbose == true) {
-            console.debug("retrieved " + accountCounter + " accounts");
+            console.log("retrieved " + accountCounter + " accounts");
         }
 
         //sort descending order by profit
@@ -131,8 +131,14 @@ export class FinderAPI{
         };
 
         //send GET request to server
+        if(this.verbose == true) {
+            console.log("Sending get request to finder.com.au for account details");
+        }
         let htmlResponse = await rp(options);
-
+        
+        if(this.verbose == true) {
+            console.log("successfully retreived details");
+        }
         //can then use cheerio to scrap data from html response
         let $ = cheerio.load(htmlResponse);
         
@@ -142,9 +148,18 @@ export class FinderAPI{
         let table = $('table.i_infobox tbody');
 
         //map html text to attribute names
+        if(this.verbose == true) {
+            console.log("reading file services/finderMapper.json");
+        }
         let mappingJson = await this.readFileAsync('services/finderMapper.json');
         let textMapper = JSON.parse(mappingJson);
-        
+        if(this.verbose == true) {
+            console.log("successfully read services/finderMapper.json");
+        }
+
+        if(this.verbose == true) {
+            console.log("Proccessing details from finder.com.au GET request");
+        }
         //handle first row
         let firstRow = $(table).children('tr').first();
         $(firstRow).children('td').each(function(i, elem) {
@@ -208,6 +223,9 @@ export class FinderAPI{
 
         //return the top 40 accounts
         let numAccountsToReturn = 40;
+        if(this.verbose == true) {
+            console.log("successfully for all: " + bankAccountDetails.length + " accounts.");
+        }
         return bankAccountDetails.splice(0,numAccountsToReturn);
     }
 
