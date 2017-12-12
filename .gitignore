@@ -1,6 +1,9 @@
 #any javascript files or intermediate javascript files
-*.js
-*.js.map
+index.js
+index.js.map
+
+services/*.js
+services/*.js.map
 
 # Logs
 logs
