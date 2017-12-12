@@ -5,7 +5,7 @@ import fs = require('fs');
 export class FinderAPI{
     accountBuffer = [];
     previousDay;
-    verbose = false;
+    verbose = true;
 
     async GetInterestAccounts():  Promise<Array<any>> {
         if(this.verbose == true) {
@@ -27,7 +27,10 @@ export class FinderAPI{
             this.accountBuffer = await this.RefreshInterestAccounts(numMonths, intialDeposit, monthlyDeposit);
             this.previousDay = time.getDay();
         }
-
+		
+		if(this.verbose == true) {
+            console.debug("Success. Returning savings accounts");
+        }
         return this.accountBuffer;
     }
     
@@ -45,7 +48,7 @@ export class FinderAPI{
                     'hisaMonthlyDeposit': monthlyDeposit,
                     'hisaPeriod': numMonths,
                 },
-                'products': [ '*' ],
+                'products': [ '3,6' ],
             },
             
             //tell server this is a form submission
