@@ -48,7 +48,7 @@ export class FinderAPI{
                     'hisaMonthlyDeposit': monthlyDeposit,
                     'hisaPeriod': numMonths,
                 },
-                'products': [ '3,6' ],
+                'products': [ '*' ],
             },
             
             //tell server this is a form submission
