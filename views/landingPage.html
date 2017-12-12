@@ -1,28 +1,70 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous">
-        </script>
-    </head>
-    <body>
-        <script src='accountFinder.js'></script>
-        
-        <table id="savingAccountsTb">
-            <tbody>
-                <tr>
-                    <th>Rank Number</th>
-                    <th>Account Name</th>
-                    <th>Variable Interest Rate p.a.</th>
-                    <th>Base Interest Rate p.a.</th>
-                    <th>Account Fees per month</th>
-                    <th>Minimum Opening Deposit</th>
-                    <th>URL</th>
-                    <!-- for mouse over text -->
-                    <th></th>
-                </tr>
-            </tbody>
-        </table>
-    </body>
+<html lang="en">
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+
+    <!-- tell bootstrap to be mobile friendly -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src='accountFinder.js'></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>Best savings accounts</h1>
+        </div>
+        <div class="row">
+            <h4>
+                <small>Below is a list of the best savings accounts compiled together using the method define
+                    <a href="https://www.google.com">here</a>. The interest earnt is calculated by an intal deposit of $5,000 followed by a monthly payment
+                    of $1,000.</small>
+            </h4>
+        </div>
+        <div class="row">
+            <table id="savingAccountsTb" class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="text-center">Rank Number</th>
+                        <th class="text-center">Account Name</th>
+                        <th class="text-center">Interest Earnt Over 1 Years</th>
+                        <th class="text-center">Variable Interest Rate p.a.</th>
+                        <th class="text-center">Base Interest Rate p.a.</th>
+                        <th class="text-center">Account Fees per month</th>
+                        <th class="text-center">Minimum Opening Deposit</th>
+                        <th class="text-center">URL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="row" id="loading-image">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <img class="center-block" src="./ajax-loading.gif">
+                <p class="text-center">Collecting latest data. This can take up to 2 minutes.</p>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</body>
+
+<style>
+    .center-block {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
 </html>

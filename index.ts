@@ -1,7 +1,7 @@
 import express = require('express');
 import path = require('path');
 
-import { FinderAPI } from "./FinderAPI";
+import { FinderAPI } from "./services/FinderAPI";
 
 let portNum = process.env.PORT || 3000;
 
