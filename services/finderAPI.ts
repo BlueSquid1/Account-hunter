@@ -21,7 +21,7 @@ export class finderAPI {
             if (this.verbose == true) {
                 console.log("expired copy in buffer. Retrieving latest interest accounts");
             }
-            let numMonths = 24;
+            let numMonths = 12;
             let intialDeposit = 5000;
             let monthlyDeposit = 1000;
             this.accountBuffer = await this.RefreshInterestAccounts(numMonths, intialDeposit, monthlyDeposit);
